@@ -9,11 +9,11 @@ body{
         "header"
         "main"
         "footer";
-    grid-template-rows: 3rem 1fr 5rem;
+    grid-template-rows: auto 1fr auto;
     margin: 0px; 
 }
 :root {
-    --dark-hues: #1B1725;
+    --dark-hues: rgba(39, 39, 164, 0.7);
     --main-hue: #D1FAFF;
     --text-hue: #ffffff;
     --highlights: #F7D6E0;
@@ -128,7 +128,10 @@ h1{
 
 main{
     grid-area: main;
-    display: grid;
+}
+
+section{
+    padding-top: 3rem;
 }
 
 h3{
@@ -151,15 +154,17 @@ h3{
     transform: translate(-50%, -50%);
     color: white;
 }
-
+.about{
+    padding: 1rem;
+}
 .projects, .about{
-    width: 80%;
+    width: 100%;
     margin: auto;
+    padding: 1rem;
 }
 .about-container{
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
 }
 
 .my-picture-style{
@@ -167,16 +172,15 @@ h3{
     margin-right: 20px;
 }
 .about-me{
-    width: 60%;
+    width: 100%;
 }
 
-.skills{
-    margin-left: 3rem;
+h4{ /*skills section*/
+    text-align: center;
 }
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows:  1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 0.5rem;
 
 
@@ -192,10 +196,9 @@ h3{
 }
 
 .block{
-
     width: 80%;
     margin: auto;
-    background: var(--highlights);
+    background: var(--dark-hues);
     padding: 2rem;
 }
 
@@ -207,6 +210,8 @@ footer{
     background: var(--dark-hues);
     color: var(--text-hue);
     padding: 1rem;
+    height: 100%;
+    margin-top: 1rem;
 }
 
 @media (min-width: 800px) {
@@ -221,8 +226,10 @@ footer{
         padding: 0 1em;
     }
 
-    .banner{display: flex;
-        align-items: center;}
+    .banner{
+        display: flex;
+        align-items: center;
+    }
 
     .logo{
         all:unset;
@@ -253,7 +260,9 @@ footer{
         margin-bottom: 0;
     }
     
-    nav a {opacity: 1;}
+    nav a {
+        opacity: 1;
+    }
 
     nav a::before{
         content: "";
